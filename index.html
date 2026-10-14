@@ -1,0 +1,75 @@
+﻿<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#10130f">
+  <meta name="description" content="Play Whot and Dice with friends. A free-to-play game room preview.">
+  <title>Play Together — Games are better together</title>
+  <link rel="icon" href="/assets/favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="/styles.css">
+  <script src="/config.js" defer></script>
+  <script src="/app.js" defer></script>
+</head>
+<body>
+  <div class="site-shell">
+    <header class="topbar">
+      <a class="brand" href="#home" aria-label="Play Together home"><span class="brand-mark">p</span><span>play<span class="brand-light">together</span></span></a>
+      <div class="topbar-right"><span class="preview-pill"><i></i> Free play preview</span><span class="guest"><span class="guest-dot">G</span><span>Guest</span></span></div>
+    </header>
+
+    <main>
+      <section class="view active" id="home-view" aria-labelledby="hero-title">
+        <div class="hero">
+          <div class="hero-copy">
+            <div class="eyebrow"><span class="spark">✳</span> YOUR NEXT GAME NIGHT STARTS HERE</div>
+            <h1 id="hero-title">Good games.<br><em>Better together.</em></h1>
+            <p>Pull up a seat, invite your people, and let the good times roll. Choose a game to make a room.</p>
+            <div class="hero-actions"><a href="#games" class="button button-bright">Choose a game <span aria-hidden="true">↓</span></a><a href="#join" class="text-link">Have a room code? Join one <span aria-hidden="true">↗</span></a></div>
+          </div>
+          <div class="hero-art" aria-hidden="true">
+            <div class="orbit orbit-one"></div><div class="orbit orbit-two"></div>
+            <div class="float-card card-back"><span>✳</span><b>PLAY</b></div>
+            <div class="float-card card-front"><span class="card-symbol">✦</span><b>YOUR<br>MOVE</b><small>01 / 02</small></div>
+            <span class="art-spark spark-a">✳</span><span class="art-spark spark-b">✦</span>
+            <div class="art-note"><span>✺</span><div><b>Made for your people</b><small>Good company required</small></div></div>
+          </div>
+        </div>
+
+        <div class="section-heading" id="games"><div><div class="eyebrow">PICK YOUR TABLE</div><h2>What are we playing?</h2></div><span class="section-note">Choose a game to set up your room</span></div>
+        <div class="game-grid">
+          <button class="game-card whot-card" data-game="Whot" aria-label="Create a Whot room">
+            <div class="game-topline"><span class="game-icon whot-icon">◈</span><span class="game-count">4 players</span></div>
+            <div class="game-illustration whot-illustration" aria-hidden="true"><span class="mini-card mini-a">●<small>1</small></span><span class="mini-card mini-b">✦<small>5</small></span><span class="mini-card mini-c">⌁<small>8</small></span></div>
+            <div class="game-copy"><div><div class="game-kicker">THE CLASSIC CARD GAME</div><h3>Whot!</h3><p>Match, strategise, and be first out of cards.</p></div><span class="round-arrow" aria-hidden="true">↗</span></div>
+          </button>
+          <button class="game-card dice-card" data-game="Dice" aria-label="Create a Dice room">
+            <div class="game-topline"><span class="game-icon dice-icon">⚄</span><span class="game-count">4 players</span></div>
+            <div class="game-illustration dice-illustration" aria-hidden="true"><span class="die die-one"><i></i><i></i><i></i></span><span class="die die-two"><i></i><i></i><i></i></span><span class="dice-spark">✳</span></div>
+            <div class="game-copy"><div><div class="game-kicker">ROLL WITH YOUR CREW</div><h3>Dice</h3><p>Take your chance, make it count, own the score.</p></div><span class="round-arrow" aria-hidden="true">↗</span></div>
+          </button>
+        </div>
+
+        <section class="join-strip" id="join" aria-labelledby="join-title"><div class="join-icon" aria-hidden="true">⌁</div><div class="join-copy"><div class="eyebrow">YOUR FRIEND HAS A ROOM?</div><h2 id="join-title">Jump right in.</h2><p>Enter their 6-character room code to join the table.</p></div><form id="join-form" class="join-form"><label class="sr-only" for="room-code-input">Room code</label><input id="room-code-input" name="code" maxlength="6" autocomplete="off" placeholder="ENTER CODE" inputmode="text" required><button class="button button-dark" type="submit">Join room <span aria-hidden="true">→</span></button></form></section>
+        <div class="preview-note"><span>ⓘ</span><p><b>A friendly preview.</b> Rooms are shared online when the room server is connected. Game rules and turns are still coming. Always free to play.</p></div>
+      </section>
+
+      <section class="view room-view" id="room-view" aria-labelledby="room-title" hidden>
+        <button class="back-link" id="back-home" type="button"><span aria-hidden="true">←</span> Back to games</button>
+        <div class="room-layout">
+          <div class="room-main">
+            <div class="room-eyebrow"><span class="live-dot"></span> PRIVATE TABLE · <span id="connection-state">CONNECTING</span></div>
+            <div class="room-title-row"><div><h1 id="room-title">Whot room</h1><p id="room-subtitle">Your table is ready. Invite your friends to join.</p></div><span id="room-game-badge" class="room-game-badge">WHOT</span></div>
+            <div class="table-stage"><div class="table-glow"></div><div class="table-center"><span class="table-game-icon" id="table-game-icon">◈</span><h2 id="table-game-title">Whot!</h2><p id="table-state-text">Waiting for your crew</p><div class="player-slots" id="player-slots"></div></div><div class="table-bottom"><span>Free play</span><span>·</span><span id="table-capacity">0 / 4 players</span></div></div>
+            <div class="room-status"><span class="status-icon">◷</span><div><b id="room-status-title">Connecting</b><small id="connection-detail">Connecting to the room server…</small></div></div>
+            <button class="button button-bright" id="ready-button" type="button" disabled>I’m ready</button>
+          </div>
+          <aside class="room-sidebar"><div class="room-side-card"><div class="eyebrow">ROOM CODE</div><div class="room-code-display" id="room-code-display">••••••</div><p>Share this code with your friends. They can enter it from any device.</p><button class="button button-bright copy-button" id="copy-code" type="button">Copy room code <span aria-hidden="true">▣</span></button></div><div class="room-side-card room-rules"><div class="eyebrow">TABLE DETAILS</div><div class="detail-row"><span>Game</span><b id="detail-game">Whot!</b></div><div class="detail-row"><span>Players</span><b id="detail-players">4 players</b></div><div class="detail-row"><span>Entry</span><b>Free</b></div><div class="detail-row"><span>Room</span><b>Private</b></div></div><button class="button button-quiet leave-button" id="leave-room" type="button">Leave room</button></aside>
+        </div>
+      </section>
+    </main>
+    <footer class="footer"><a class="brand footer-brand" href="#home"><span class="brand-mark">p</span><span>play<span class="brand-light">together</span></span></a><span>Made for the moments between the moves.</span><span>Free to play · Preview</span></footer>
+  </div>
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+</body>
+</html>
